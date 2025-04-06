@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { MdEmail } from "react-icons/md";
+import { RiLockPasswordLine } from "react-icons/ri";
 import "../styles/LoginPage.css";
-import background from "../images/background.jpg";
+import background from "../images/login.jpg";
 
 function LoginPage() {
   return (
@@ -15,14 +17,16 @@ function LoginPage() {
 
       <div className="right-side">
         <div className="form-box">
-          <h2>Log in to your account</h2>
+          <h2>Log-in to your account</h2>
           <form>
-            <div className="input-group">
-              <input type="email" placeholder="Your e-mail" />
-            </div>
-            <div className="input-group">
-              <input type="password" placeholder="Password" />
-            </div>
+          <div className="input-group">
+            <MdEmail className="input-icon" />
+            <input type="email" placeholder="Your e-mail" />
+          </div>
+          <div className="input-group">
+            <RiLockPasswordLine className="input-icon" />
+            <input type="password" placeholder="Password" />
+          </div>
 
             <div className="form-options">
               <Link to="/register">Register</Link>
