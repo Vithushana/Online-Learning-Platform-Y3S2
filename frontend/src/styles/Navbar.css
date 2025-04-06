@@ -1,0 +1,39 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    position: absolute;
+    top: 0;
+    width: auto;
+    z-index: 10;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .dot {
+    color: #b2d235;
+    margin-left: 2px;
+  }
+  
+  .menu {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+  }
+  
+  .menu li {
+    color: white;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .menu li:hover,
+  .menu .active {
+    color: #b2d235;
+  }
+  
