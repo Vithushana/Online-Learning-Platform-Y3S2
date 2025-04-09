@@ -4,7 +4,7 @@ import "../styles/Navbar.css";
 function Navbar() {
   return (
     <nav className="navbar">
-      <div className="logo">StartIT<span className="dot">•</span></div>
+      <div className="logo">SkillHive<span className="dot">•</span></div>
       <ul className="menu">
         <li className="active">Home</li>
         <li>Pages</li>

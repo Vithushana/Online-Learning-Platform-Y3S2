@@ -30,9 +30,9 @@ function HeroSection() {
       >
         <div className="overlay" />
         <div className="content">
-          <h1>Why Wait? StartIT<br />Right Now!</h1>
+          <h1>Why Wait? SkillHive<br />Right Now!</h1>
           <p>
-            Make your awesome business idea a reality with StartIT, the fresh new theme from Select - custom made for modern startups.
+            Make your awesome eLearning idea a reality with SkillHive, A buzzing community for skill exchange.
           </p>
           <div className="buttons">
             <button className="register">Register</button>
