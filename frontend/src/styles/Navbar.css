@@ -16,7 +16,7 @@
   }
   
   .dot {
-    color: #b2d235;
+    color: #8F87F1;
     margin-left: 2px;
   }
   
@@ -34,7 +34,7 @@
   
   .menu li:hover,
   .menu .active {
-    color: #b2d235;
+    color: #8F87F1;
   }
   
   .dropdown-menu {
@@ -54,7 +54,7 @@
   }
   
   .dropdown-menu li:hover {
-    background-color: #b2d235;
+    background-color: #8F87F1;
   }
   
   .nav-link {

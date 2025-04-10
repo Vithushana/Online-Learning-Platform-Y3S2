@@ -14,9 +14,11 @@ function Navbar() {
       <div className="logo">SkillHive<span className="dot">•</span></div>
       <ul className="menu">
         <li><Link to="/" className="nav-link">Home</Link></li>
+        <li><Link to="/" className="nav-link">About</Link></li>
+        <li><Link to="/" className="nav-link">Courses</Link></li>
 
         <li className="dropdown" onClick={toggleDropdown}>
-          Dashboard ▾
+          Pages ▾
           {dropdownOpen && (
             <ul className="dropdown-menu">
               <li><Link to="/admin/dashboard">Admin</Link></li>
@@ -26,7 +28,7 @@ function Navbar() {
           )}
         </li>
 
-        <li><Link to="/blog" className="nav-link">Blog</Link></li>
+        <li><Link to="/blog" className="nav-link">Contact</Link></li>
       </ul>
     </nav>
   );

@@ -11,8 +11,8 @@ function RegisterPage() {
     <div className="login-container">
       <div className="left-side" style={{ backgroundImage: `url(${background})` }}>
         <div className="text-content">
-          <span className="template-tag">Template</span>
-          <h1>Start your journey<br />with <span>eLearning</span></h1>
+          <span className="template-tag">SkillHive</span>
+          <h1>Start your journey<br />with <span>SkillHive</span></h1>
         </div>
       </div>
 
