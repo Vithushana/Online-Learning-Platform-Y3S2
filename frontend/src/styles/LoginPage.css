@@ -3,8 +3,8 @@
   min-height: 100vh;
   font-family: 'Segoe UI', sans-serif;
   overflow: hidden;
-  background-color: #8EC5FC;
-  background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+  background-color: #54779a;
+  background-image: linear-gradient(62deg, #5a7b9b 0%, #c397ec 100%);
 }
 
 /* LEFT SIDE - Full Background Image */
@@ -80,10 +80,11 @@
   width: 100%;
   max-width: 400px;
   padding: 40px;
-  background-color: #ffffff;
+  background-color: #1f1f2e;
   border-radius: 16px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
   animation: fadeIn 1.2s ease;
+  color: white;
 }
 
 .form-box h2 {
@@ -98,7 +99,7 @@
 }
 
 .input-group input {
-  width: 90%;
+  width: 86%;
   padding: 12px 15px 12px 40px;
   border: 1px solid #bababa;
   border-radius: 8px;
@@ -129,7 +130,7 @@
 }
 
 .form-options a {
-  color: #111010;
+  color: white;
   text-decoration: none;
 }
 
