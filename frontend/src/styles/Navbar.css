@@ -5,12 +5,12 @@
     padding: 20px 50px;
     position: absolute;
     top: 0;
-    width: auto;
+    width: 90%;
     z-index: 10;
   }
   
   .logo {
-    font-size: 1.5rem;
+    font-size: 3.5rem;
     font-weight: bold;
     color: white;
   }

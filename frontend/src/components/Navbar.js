@@ -14,7 +14,6 @@ function Navbar() {
       <div className="logo">SkillHive<span className="dot">•</span></div>
       <ul className="menu">
         <li><Link to="/" className="nav-link">Home</Link></li>
-        <li><Link to="/about" className="nav-link">About</Link></li>
         <li><Link to="/" className="nav-link">Courses</Link></li>
 
         <li className="dropdown" onClick={toggleDropdown}>
@@ -28,6 +27,7 @@ function Navbar() {
           )}
         </li>
 
+        <li><Link to="/about" className="nav-link">AboutUs</Link></li>
         <li><Link to="/contact" className="nav-link">Contact</Link></li>
       </ul>
     </nav>
