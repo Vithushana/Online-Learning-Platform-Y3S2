@@ -1,0 +1,56 @@
+.manage-categories {
+    padding: 20px;
+  }
+  
+  .manage-categories h2 {
+    color: #6f42c1;
+    margin-bottom: 20px;
+  }
+  
+  .add-category {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+  
+  .add-category input {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 300px;
+  }
+  
+  .add-category button {
+    padding: 10px 16px;
+    background-color: #6f42c1;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .category-list {
+    list-style: none;
+    padding: 0;
+    max-width: 500px;
+  }
+  
+  .category-list li {
+    padding: 12px 20px;
+    background: #f8f9fa;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .category-list button {
+    padding: 6px 12px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
