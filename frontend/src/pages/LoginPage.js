@@ -2,35 +2,61 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "../styles/LoginPage.css";
 import background from "../images/login.jpg";
 
 function LoginPage() {
   const navigate = useNavigate();
-  const [role, setRole] = useState("student"); // default role
+  const [role, setRole] = useState("student");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
-    // ✅ You can call backend API here using fetch or axios
-    // For now, redirect based on selected role
-    if (role === "admin") {
-      navigate("/admin/dashboard");
-    } else if (role === "mentor") {
-      navigate("/mentor/dashboard");
-    } else {
-      navigate("/student/dashboard");
+    try {
+      const res = await fetch("http://localhost:8080/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password, role }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok && !data.message) {
+        toast.success("Login successful! Redirecting...", {
+          position: "top-center",
+        });
+
+        setTimeout(() => {
+          if (role === "admin") navigate("/admin/dashboard");
+          else if (role === "mentor") navigate("/mentor/dashboard");
+          else navigate("/student/dashboard");
+        }, 1500);
+      } else {
+        toast.error(data.message || "Invalid email or password", {
+          position: "top-center",
+        });
+      }
+    } catch (err) {
+      toast.error("Server error. Please try again.", {
+        position: "top-center",
+      });
     }
   };
 
   return (
     <div className="login-container">
+      <ToastContainer autoClose={3000} />
+      
       <div className="left-side" style={{ backgroundImage: `url(${background})` }}>
         <div className="text-content">
           <span className="template-tag">SkillHive</span>
-          <h1>Improve your skills<br />with <span>SkillHive</span></h1>
+          <h1>
+            Improve your skills<br /><span>with SkillHive</span>
+          </h1>
         </div>
       </div>
 
@@ -38,7 +64,7 @@ function LoginPage() {
         <div className="form-box">
           <h2>Log-in to your account</h2>
           <form onSubmit={handleLogin}>
-          <div className="input-group">
+            <div className="input-group">
               <select
                 className="role-select"
                 value={role}
@@ -70,7 +96,7 @@ function LoginPage() {
                 required
               />
             </div>
-            
+
             <div className="form-options">
               <Link to="/register">Register</Link>
               <Link to="/forgot-password">Forgot Password?</Link>
