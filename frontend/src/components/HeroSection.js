@@ -35,7 +35,7 @@ function HeroSection() {
             Make your awesome eLearning idea a reality with SkillHive, A buzzing community for skill exchange.
           </p>
           <div className="buttons">
-            <button className="register">Register</button>
+            <button className="register" onClick={() => navigate("/register")}>Register</button>
             <button className="login" onClick={() => navigate("/login")}>Login</button>
           </div>
         </div>

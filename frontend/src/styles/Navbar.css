@@ -37,3 +37,28 @@
     color: #b2d235;
   }
   
+  .dropdown-menu {
+    position: absolute;
+    top: 60px;
+    background-color: #eae3e3;
+    padding: 10px 0;
+    list-style: none;
+    border-radius: 6px;
+    z-index: 100;
+  }
+  
+  .dropdown-menu li {
+    padding: 8px 20px;
+    white-space: nowrap;
+    color: white;
+  }
+  
+  .dropdown-menu li:hover {
+    background-color: #b2d235;
+  }
+  
+  .nav-link {
+    color: inherit;
+    text-decoration: none;
+  }
+  
