@@ -1,9 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "../styles/AdminDashboard.css";
+import { Link } from "react-router-dom";
 import {
-  LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip,
-  PieChart, Pie, Cell, ResponsiveContainer, Legend
+  LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer
 } from "recharts";
 
 const chartData = [
@@ -13,79 +12,57 @@ const chartData = [
   { month: "Apr", users: 35, courses: 12, categories: 8 },
 ];
 
-const summaryData = [
-  { name: "Users", value: 80 },
-  { name: "Courses", value: 34 },
-  { name: "Categories", value: 18 },
-];
-
-const COLORS = ["#8884d8", "#82ca9d", "#ffc658"];
-
 function AdminDashboard() {
   return (
-    <div className="admin-dashboard">
-      <h2>Welcome Admin 👩‍💼</h2>
+    <div className="admin-dashboard-ui">
+      {/* Sidebar */}
+      <aside className="sidebar">
+        <h2 className="logo">SkillHive</h2>
+        <nav>
+          <Link to="/admin/dashboard">Dashboard</Link>
+          <Link to="/admin/users">👤 Users</Link>
+          <Link to="/admin/courses">📚 Courses</Link>
+          <Link to="/admin/categories">🗂 Categories</Link>
+        </nav>
+        <button className="logout-btn" onClick={() => {
+          localStorage.clear();
+          window.location.href = "/";
+        }}>
+          🚪 Logout
+        </button>
 
-      <div className="admin-search">
-        <input type="text" placeholder="Search users, courses, categories..." />
-      </div>
+      </aside>
 
-      <div className="admin-actions">
-        <Link to="/admin/users" className="admin-card">
-          <h3>Manage Users</h3>
-          <p>View, add, delete, or update students and mentors.</p>
-        </Link>
-        <Link to="/admin/courses" className="admin-card">
-          <h3>Manage Courses</h3>
-          <p>Add, update or delete course content and metadata.</p>
-        </Link>
-        <Link to="/admin/categories" className="admin-card">
-          <h3>Manage Categories</h3>
-          <p>Create or organize course categories.</p>
-        </Link>
-      </div>
 
-      <div className="dashboard-charts">
-        <div className="chart-box">
-          <h4>Monthly Growth 📈</h4>
-          <ResponsiveContainer width="100%" height={250}>
-            <LineChart data={chartData}>
-              <Line type="monotone" dataKey="users" stroke="#8884d8" />
-              <Line type="monotone" dataKey="courses" stroke="#82ca9d" />
-              <Line type="monotone" dataKey="categories" stroke="#ffc658" />
-              <CartesianGrid stroke="#ccc" />
-              <XAxis dataKey="month" />
-              <YAxis />
-              <Tooltip />
+      {/* Main Dashboard */}
+      <main className="dashboard-content">
+        <header className="dashboard-header">
+          <h1>Welcome, Admin 👋</h1>
+          <p>Here’s what’s happening today</p>
+        </header>
+
+        <section className="stats-cards">
+          <div className="card users">👤 Users <span>80</span></div>
+          <div className="card courses">📚 Courses <span>34</span></div>
+          <div className="card categories">🗂 Categories <span>18</span></div>
+        </section>
+
+        <section className="chart-section">
+          <h3>Monthly Growth</h3>
+          <ResponsiveContainer width="100%" height={300}>
+            <LineChart data={chartData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+              <CartesianGrid stroke="#444" />
+              <XAxis dataKey="month" stroke="#aaa" />
+              <YAxis stroke="#aaa" />
+              <Tooltip contentStyle={{ background: "#2e2e2e", color: "#fff" }} />
               <Legend />
+              <Line type="monotone" dataKey="users" stroke="#82caff" strokeWidth={2} />
+              <Line type="monotone" dataKey="courses" stroke="#57e29a" strokeWidth={2} />
+              <Line type="monotone" dataKey="categories" stroke="#f1c40f" strokeWidth={2} />
             </LineChart>
           </ResponsiveContainer>
-        </div>
-
-        {/* Pie Chart */}
-        <div className="chart-box">
-          <h4>Current Stats Distribution 🥧</h4>
-          <ResponsiveContainer width="100%" height={300}>
-            <PieChart>
-              <Pie
-                data={summaryData}
-                dataKey="value"
-                nameKey="name"
-                cx="50%"
-                cy="50%"
-                outerRadius={100}
-                label
-              >
-                {summaryData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index]} />
-                ))}
-              </Pie>
-              <Legend />
-              <Tooltip />
-            </PieChart>
-          </ResponsiveContainer>
-        </div>
-      </div>
+        </section>
+      </main>
     </div>
   );
 }

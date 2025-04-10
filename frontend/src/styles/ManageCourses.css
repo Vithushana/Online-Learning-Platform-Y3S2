@@ -1,61 +1,87 @@
 .manage-courses {
-    padding: 20px;
-  }
-  
-  .manage-courses h2 {
-    color: #6f42c1;
-    margin-bottom: 20px;
-  }
-  
-  .add-course-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-width: 500px;
-    margin-bottom: 30px;
-  }
-  
-  .add-course-form input,
-  .add-course-form textarea {
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-  }
-  
-  .add-course-form button {
-    padding: 10px;
-    background-color: #6f42c1;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  
-  .course-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .course-card {
-    background: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  }
-  
-  .course-card h3 {
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  .course-card button {
-    margin-top: 10px;
-    background-color: #dc3545;
-    color: white;
-    padding: 8px 14px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  
+  padding: 30px;
+  background-color: #1f1f2e;
+  color: #f0f0f0;
+  min-height: 100vh;
+}
+
+.manage-courses h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #f8e112;
+}
+
+.add-course-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.add-course-form input,
+.add-course-form textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #555;
+  background-color: #2c2c3c;
+  color: white;
+  flex: 1 1 200px;
+  min-width: 220px;
+}
+
+.add-course-form textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+.add-course-form button {
+  padding: 10px 20px;
+  background-color: #6f42c1;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-course-form button:hover {
+  background-color: #5a33a7;
+}
+
+.course-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.course-card {
+  background: #2c2c3c;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+}
+
+.course-card h3 {
+  color: #f8e112;
+  margin-bottom: 10px;
+}
+
+.course-card p {
+  margin: 6px 0;
+  font-size: 0.95rem;
+}
+
+.course-card button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+}
