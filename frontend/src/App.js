@@ -9,6 +9,8 @@ import AdminDashboard from "./dashboard/AdminDashboard";
 import ManageUsers from "./dashboard/ManageUsers";
 import ManageCategories from "./dashboard/ManageCategories";
 import ManageCourses from "./dashboard/ManageCourses";
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
         <Route path="/admin/users" element={<ManageUsers />} />
         <Route path="/admin/categories" element={<ManageCategories />} />
         <Route path="/admin/courses" element={<ManageCourses />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
     </Router>
   );
