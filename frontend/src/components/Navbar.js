@@ -23,7 +23,7 @@ function Navbar() {
             <ul className="dropdown-menu">
               <li><Link to="/admin/dashboard">Admin</Link></li>
               <li><Link to="/mentor/dashboard">Mentor</Link></li>
-              <li><Link to="/student/dashboard">Student</Link></li>
+              <li><Link to="/dashboard">Student</Link></li>
             </ul>
           )}
         </li>
