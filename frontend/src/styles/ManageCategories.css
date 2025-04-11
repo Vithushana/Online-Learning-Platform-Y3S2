@@ -28,7 +28,8 @@
   flex: 1;
 }
 
-.add-category button {
+.add-category button,
+.cancel-btn {
   padding: 10px 20px;
   background-color: #6f42c1;
   color: white;
@@ -38,13 +39,19 @@
   transition: background-color 0.3s ease;
 }
 
-.add-category button:hover {
+.add-category button:hover,
+.cancel-btn:hover {
   background-color: #5a33a7;
+}
+
+.cancel-btn {
+  background-color: #888;
 }
 
 .category-list {
   list-style: none;
   padding: 0;
+  margin-top: 20px;
 }
 
 .category-list li {
@@ -58,11 +65,34 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.category-list button {
-  background-color: #dc3545;
+.category-list span {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.category-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.category-actions button {
+  background-color: #6f42c1;
   color: white;
   border: none;
   padding: 6px 12px;
   border-radius: 6px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.category-actions button:hover {
+  background-color: #5a33a7;
+}
+
+.category-actions button:last-child {
+  background-color: #dc3545;
+}
+
+.category-actions button:last-child:hover {
+  background-color: #bb2d3b;
 }
