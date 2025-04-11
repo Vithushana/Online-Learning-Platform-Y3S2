@@ -53,6 +53,7 @@ function ManageUsers() {
           <select name="role" value={newUser.role} onChange={handleChange}>
             <option value="student">Student</option>
             <option value="mentor">Mentor</option>
+            <option value="admin">Admin</option>
           </select>
           <button onClick={handleAdd}>Add User</button>
         </div>

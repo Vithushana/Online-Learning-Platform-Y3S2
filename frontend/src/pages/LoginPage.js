@@ -37,7 +37,6 @@ function LoginPage() {
           position: "top-center",
         });
 
-          // Store role and email or token if needed
         localStorage.setItem("userRole", role);
         localStorage.setItem("userEmail", email);
 
