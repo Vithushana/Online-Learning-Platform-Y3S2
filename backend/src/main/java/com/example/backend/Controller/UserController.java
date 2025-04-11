@@ -1,32 +1,35 @@
 package com.example.backend.Controller;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.backend.Services.UserService;
 import com.example.backend.Model.User;
 
-@CrossOrigin(origins = "http://localhost:3000") // for React
+
+
 @RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/api/auth")
 public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/login")
-    public Object login(@RequestBody User user) {
-        Optional<User> result = userService.login(user.getEmail(), user.getPassword(), user.getRole());
-
-        if (result.isPresent()) {
-            return result.get();
-        } else {
-            return new Error("Invalid email or password.");
-        }
+    // Register user
+    @PostMapping("/register")
+    public ResponseEntity<?> register(@RequestBody User user) {
+        User savedUser = userService.register(user);
+        return ResponseEntity.ok(savedUser);
     }
+    
+
+    // Login user
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody User user) {
+        System.out.println("Login endpoint hit with email: " + user.getEmail());
+        ResponseEntity<?> result = userService.login(user.getEmail(), user.getPassword(), user.getRole());
+        return result;
+    }
+    
 }

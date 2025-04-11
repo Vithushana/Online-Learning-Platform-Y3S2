@@ -19,9 +19,16 @@ function LoginPage() {
     try {
       const res = await fetch("http://localhost:8080/api/auth/login", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password, role }),
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          email,
+          password,
+          role
+        })
       });
+      
 
       const data = await res.json();
 
@@ -29,6 +36,10 @@ function LoginPage() {
         toast.success("Login successful! Redirecting...", {
           position: "top-center",
         });
+
+          // Store role and email or token if needed
+        localStorage.setItem("userRole", role);
+        localStorage.setItem("userEmail", email);
 
         setTimeout(() => {
           if (role === "admin") navigate("/admin/dashboard");
