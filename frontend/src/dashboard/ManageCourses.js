@@ -97,7 +97,6 @@ function ManageCourses() {
     <div className="manage-courses">
       <h2>Manage Courses</h2>
 
-      {/* 🔍 Search & Report */}
       <div className="search-export-bar">
         <input
           type="text"

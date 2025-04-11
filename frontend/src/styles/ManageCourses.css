@@ -99,6 +99,7 @@
   border: 1px solid #989797;
   border-radius: 6px;
   min-width: 200px;
+  background-color: #aaa8a8;
 }
 
 .search-export-bar button {
