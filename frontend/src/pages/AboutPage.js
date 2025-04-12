@@ -36,18 +36,18 @@ function AboutPage() {
         <h2>👥 Meet the Team</h2>
         <div className="team-grid">
           <div className="team-card">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa9--b2SAwj1nsANO-WXUlt4Cyfq7Plb7kMw&s" alt="ceo" />
-            <h4>John Doe</h4>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnbZ8fL3fwloyIFjBBFsFINf-Qyeey3VZ9eA&s" alt="ceo" />
+            <h4>Sharumathan Mathivathanan</h4>
             <p>Founder & CEO</p>
           </div>
           <div className="team-card">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa9--b2SAwj1nsANO-WXUlt4Cyfq7Plb7kMw&s" alt="manager" />
-            <h4>Jane Smith</h4>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfoEP2AH8e1ZRtz_Cy0JwrYxQ91vWma2GuiQ&s" alt="manager" />
+            <h4>Vithushana Nirmaleswaran</h4>
             <p>Mentor Manager</p>
           </div>
           <div className="team-card">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa9--b2SAwj1nsANO-WXUlt4Cyfq7Plb7kMw&s" alt="student" />
-            <h4>Alex Brown</h4>
+            <h4>Nirmaleswaran Dilaxsaswaran</h4>
             <p>Community Lead</p>
           </div>
         </div>
