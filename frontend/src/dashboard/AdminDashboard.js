@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/AdminDashboard.css";
 import { Link } from "react-router-dom";
 import {
@@ -13,6 +13,30 @@ const chartData = [
 ];
 
 function AdminDashboard() {
+  const [userCount, setUserCount] = useState(0);
+  const [courseCount, setCourseCount] = useState(0);
+  const [categoryCount, setCategoryCount] = useState(0);
+
+  useEffect(() => {
+    // Fetch user count
+    fetch("http://localhost:8080/api/auth/users")
+      .then((res) => res.json())
+      .then((data) => setUserCount(data.length))
+      .catch((err) => console.error("Error fetching users:", err));
+
+    // Fetch course count
+    fetch("http://localhost:8080/api/courses")
+      .then((res) => res.json())
+      .then((data) => setCourseCount(data.length))
+      .catch((err) => console.error("Error fetching courses:", err));
+
+    // Fetch category count
+    fetch("http://localhost:8080/api/categories")
+      .then((res) => res.json())
+      .then((data) => setCategoryCount(data.length))
+      .catch((err) => console.error("Error fetching categories:", err));
+  }, []);
+
   return (
     <div className="admin-dashboard-ui">
       {/* Sidebar */}
@@ -30,9 +54,7 @@ function AdminDashboard() {
         }}>
           🚪 Logout
         </button>
-
       </aside>
-
 
       {/* Main Dashboard */}
       <main className="dashboard-content">
@@ -42,9 +64,9 @@ function AdminDashboard() {
         </header>
 
         <section className="stats-cards">
-          <div className="card users">👤 Users <span>80</span></div>
-          <div className="card courses">📚 Courses <span>34</span></div>
-          <div className="card categories">🗂 Categories <span>18</span></div>
+          <div className="card users">👤 Users <span>{userCount}</span></div>
+          <div className="card courses">📚 Courses <span>{courseCount}</span></div>
+          <div className="card categories">🗂 Categories <span>{categoryCount}</span></div>
         </section>
 
         <section className="chart-section">

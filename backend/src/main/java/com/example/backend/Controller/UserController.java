@@ -1,5 +1,7 @@
 package com.example.backend.Controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -32,4 +34,23 @@ public class UserController {
         return result;
     }
     
+    @GetMapping("/users")
+    public List<User> getAllUsers() {
+        return userService.getAllUsers();
+    }
+
+    @PostMapping("/users")
+    public User addUser(@RequestBody User user) {
+        return userService.addUser(user);
+    }
+
+    @PutMapping("/users/{id}")
+    public User updateUser(@PathVariable String id, @RequestBody User user) {
+        return userService.updateUser(id, user);
+    }
+
+    @DeleteMapping("/users/{id}")
+    public void deleteUser(@PathVariable String id) {
+        userService.deleteUser(id);
+    }
 }
