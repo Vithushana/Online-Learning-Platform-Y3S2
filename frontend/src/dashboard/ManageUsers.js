@@ -83,6 +83,12 @@ function ManageUsers() {
           <option value="mentor">Mentor</option>
           <option value="admin">Admin</option>
         </select>
+        <input
+          type="date"
+          name="udate"
+          value={newUser.udate}
+          onChange={handleChange}
+        />
         <button onClick={handleAddOrUpdate}>
           {editingId ? "Update User" : "Add User"}
         </button>
@@ -95,6 +101,7 @@ function ManageUsers() {
             <th>Name</th>
             <th>Email</th>
             <th>Role</th>
+            <th>Date</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -104,6 +111,7 @@ function ManageUsers() {
               <td>{u.name}</td>
               <td>{u.email}</td>
               <td>{u.role}</td>
+              <td>{u.udate ? new Date(u.udate).toLocaleDateString() : "N/A"}</td>
               <td>
                 <button className="update-btn" onClick={() => handleEdit(u)}>
                   Edit

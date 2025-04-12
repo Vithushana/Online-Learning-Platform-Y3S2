@@ -1,5 +1,7 @@
 package com.example.backend.Model;
 
+import java.util.Date;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -12,6 +14,7 @@ public class User {
     private String email;
     private String password;
     private String role; 
+    private Date udate;
 
     public User() {}
 
@@ -59,5 +62,13 @@ public class User {
 
     public void setRole(String role){
         this.role = role;
+    }
+
+    public Date getUdate(){
+        return udate;
+    }
+
+    public void setUdate(Date udate){
+        this.udate=udate;
     }
 }
