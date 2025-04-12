@@ -54,7 +54,7 @@ function ManageUsers() {
     setNewUser({
       name: user.name,
       email: user.email,
-      password: user.password, // ✅ preserve password
+      password: user.password,
       role: user.role
     });
     setEditingId(user.id);

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "../styles/ContactPage.css";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function ContactPage() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -8,11 +10,25 @@ function ContactPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // You can connect this to a backend endpoint or email API
-    alert("Message sent successfully!");
-    setFormData({ name: "", email: "", message: "" });
+    try {
+      const res = await fetch("http://localhost:8080/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        toast.success("Message sent successfully!");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        toast.error("Failed to send message!");
+      }
+    } catch (err) {
+      console.error("Error submitting contact form:", err);
+      toast.error("Something went wrong. Please try again.");
+    }
   };
 
   return (
@@ -23,8 +39,8 @@ function ContactPage() {
           <p>Have questions or feedback? We’d love to hear from you!</p>
           <div className="info-box">
             <p><strong>Email:</strong> support@skillhive.com</p>
-            <p><strong>Phone:</strong> +1 234 567 8901</p>
-            <p><strong>Address:</strong> 123 Learning Ave, Edutown, World</p>
+            <p><strong>Phone:</strong> +94 763339966</p>
+            <p><strong>Address:</strong> 123 Peterson Lane, Colombo, SriLanka</p>
           </div>
         </div>
 
@@ -55,6 +71,8 @@ function ContactPage() {
           />
           <button type="submit">Send Message</button>
         </form>
+
+        <ToastContainer position="top-center" autoClose={3000} />
       </div>
     </div>
   );
