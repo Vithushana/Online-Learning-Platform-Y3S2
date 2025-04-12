@@ -3,15 +3,21 @@ import "../styles/ManageCourses.css";
 
 function ManageCourses() {
   const [courses, setCourses] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [newCourse, setNewCourse] = useState({ title: "", category: "", description: "" });
   const [searchTerm, setSearchTerm] = useState("");
-  const [editingId, setEditingId] = useState(null); // for update tracking
+  const [editingId, setEditingId] = useState(null);
 
   useEffect(() => {
     fetch("http://localhost:8080/api/courses")
       .then((res) => res.json())
       .then((data) => setCourses(data))
       .catch((err) => console.error("Error fetching courses:", err));
+
+    fetch("http://localhost:8080/api/categories")
+      .then((res) => res.json())
+      .then((data) => setCategories(data))
+      .catch((err) => console.error("Error fetching categories:", err));
   }, []);
 
   const handleChange = (e) => {
@@ -23,7 +29,6 @@ function ManageCourses() {
     if (!newCourse.title || !newCourse.category) return;
 
     if (editingId) {
-      // 🔁 UPDATE logic
       fetch(`http://localhost:8080/api/courses/${editingId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -36,7 +41,6 @@ function ManageCourses() {
         })
         .catch((err) => console.error("Error updating course:", err));
     } else {
-      // ➕ ADD logic
       fetch("http://localhost:8080/api/courses", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -115,13 +119,12 @@ function ManageCourses() {
           value={newCourse.title}
           onChange={handleChange}
         />
-        <input
-          type="text"
-          name="category"
-          placeholder="Category"
-          value={newCourse.category}
-          onChange={handleChange}
-        />
+        <select name="category" value={newCourse.category} onChange={handleChange}>
+          <option value="">-- Select Category --</option>
+          {categories.map((cat) => (
+            <option key={cat.id} value={cat.name}>{cat.name}</option>
+          ))}
+        </select>
         <textarea
           name="description"
           placeholder="Description"

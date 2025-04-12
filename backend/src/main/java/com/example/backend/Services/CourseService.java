@@ -10,7 +10,8 @@ import com.example.backend.Respositotry.CourseRepository;
 
 @Service
 public class CourseService {
-     @Autowired
+
+    @Autowired
     private CourseRepository courseRepository;
 
     public List<Course> getAllCourses() {
@@ -18,6 +19,11 @@ public class CourseService {
     }
 
     public Course addCourse(Course course) {
+        return courseRepository.save(course);
+    }
+
+    public Course updateCourse(String id, Course course) {
+        course.setId(id);
         return courseRepository.save(course);
     }
 

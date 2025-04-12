@@ -3,9 +3,15 @@ import "../styles/ManageUsers.css";
 
 function ManageUsers() {
   const [users, setUsers] = useState([]);
-  const [newUser, setNewUser] = useState({ name: "", email: "", role: "student" });
+  const [newUser, setNewUser] = useState({
+    name: "",
+    email: "",
+    password: "",
+    role: "student"
+  });
   const [editingId, setEditingId] = useState(null);
 
+  // 🔁 Fetch all users
   useEffect(() => {
     fetch("http://localhost:8080/api/auth/users")
       .then((res) => res.json())
@@ -27,7 +33,7 @@ function ManageUsers() {
       : "http://localhost:8080/api/auth/users";
 
     fetch(url, {
-      method: method,
+      method,
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newUser),
     })
@@ -38,14 +44,19 @@ function ManageUsers() {
         } else {
           setUsers([...users, data]);
         }
-        setNewUser({ name: "", email: "", role: "student" });
+        setNewUser({ name: "", email: "", password: "", role: "student" });
         setEditingId(null);
       })
       .catch((err) => console.error("Error saving user:", err));
   };
 
   const handleEdit = (user) => {
-    setNewUser({ name: user.name, email: user.email, role: user.role });
+    setNewUser({
+      name: user.name,
+      email: user.email,
+      password: user.password, // ✅ preserve password
+      role: user.role
+    });
     setEditingId(user.id);
   };
 
@@ -92,7 +103,14 @@ function ManageUsers() {
         <button onClick={handleAddOrUpdate}>
           {editingId ? "Update User" : "Add User"}
         </button>
-        {editingId && <button onClick={() => setEditingId(null)}>Cancel</button>}
+        {editingId && (
+          <button onClick={() => {
+            setNewUser({ name: "", email: "", password: "", role: "student" });
+            setEditingId(null);
+          }} style={{ marginLeft: "10px" }}>
+            Cancel
+          </button>
+        )}
       </div>
 
       <table className="students-table">
@@ -113,12 +131,8 @@ function ManageUsers() {
               <td>{u.role}</td>
               <td>{u.udate ? new Date(u.udate).toLocaleDateString() : "N/A"}</td>
               <td>
-                <button className="update-btn" onClick={() => handleEdit(u)}>
-                  Edit
-                </button>
-                <button className="delete-btn" onClick={() => handleDelete(u.id)}>
-                  Delete
-                </button>
+                <button className="update-btn" onClick={() => handleEdit(u)}>Edit</button>
+                <button className="delete-btn" onClick={() => handleDelete(u.id)}>Delete</button>
               </td>
             </tr>
           ))}
