@@ -43,7 +43,7 @@ function LoginPage() {
         setTimeout(() => {
           if (role === "admin") navigate("/admin/dashboard");
           else if (role === "mentor") navigate("/mentor/dashboard");
-          else navigate("/student/dashboard");
+          else navigate("/dashboard");
         }, 1500);
       } else {
         toast.error(data.message || "Invalid email or password", {

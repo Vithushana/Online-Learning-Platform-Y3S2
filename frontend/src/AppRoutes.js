@@ -4,7 +4,7 @@ import HeroSection from "./components/HeroSection";
 import Navbar from "./components/Navbar";
 import LoginPage from './pages/LoginPage';
 import RegisterPage from "./pages/RegisterPage";
-import Student from "./dashboard/Student";
+import StudentDashboard from "./dashboard/StudentDashboard";
 import AdminDashboard from "./dashboard/AdminDashboard";
 import ManageUsers from "./dashboard/ManageUsers";
 import ManageCategories from "./dashboard/ManageCategories";
@@ -57,7 +57,7 @@ function AppRoutes() {
         {/* ✅ Protected Routes */}
         <Route path="/dashboard" element={
           <ProtectedRoute allowedRoles={["student"]}>
-            <Student />
+            <StudentDashboard />
           </ProtectedRoute>
         } />
         <Route path="/admin/dashboard" element={
