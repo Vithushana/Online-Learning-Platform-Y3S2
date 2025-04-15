@@ -1,5 +1,3 @@
-/* StudentDashboard.css */
-
 .student-dashboard-ui {
   display: flex;
   height: 100vh;
@@ -53,10 +51,18 @@
   background-color: #e84343;
 }
 
-/* Main Content */
-.dashboard-content {
+/* Main 2 columns */
+.main-columns {
+  display: flex;
   flex: 1;
-  padding: 30px;
+  padding: 20px;
+  gap: 20px;
+  overflow-x: auto;
+}
+
+/* Middle content */
+.dashboard-content {
+  flex: 2;
   overflow-y: auto;
 }
 
@@ -64,16 +70,13 @@
   margin-bottom: 6px;
 }
 
-.select-course {
-  margin: 20px 0;
+.dashboard-header p {
+  color: #bbb;
+  margin-bottom: 25px;
 }
 
-.select-course select {
-  padding: 10px;
-  border-radius: 6px;
-  background-color: #2c2c3c;
-  color: #fff;
-  border: 1px solid #666;
+.select-course {
+  margin: 20px 0;
 }
 
 .posts-grid {
@@ -81,6 +84,24 @@
   gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   margin-top: 20px;
+}
+
+.course-btn {
+  padding: 12px;
+  border-radius: 6px;
+  background-color: #2c2c3c;
+  color: #fff;
+  border: 1px solid #555;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.course-btn:hover {
+  background-color: #444;
+}
+
+.course-btn.active {
+  background-color: #007bff;
 }
 
 .post-card {
@@ -98,6 +119,7 @@
 .post-card p {
   font-size: 0.95rem;
   margin-bottom: 10px;
+  color: #ddd;
 }
 
 .comment-box {
@@ -122,4 +144,88 @@
   padding: 8px 16px;
   border-radius: 6px;
   cursor: pointer;
+}
+
+.comment-box button:hover {
+  background-color: #005bb5;
+}
+
+/* Profile card (Right column) */
+.profile-section {
+  flex: 1;
+}
+
+.elo-profile-card {
+  background: #333;
+  color: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+  height: 820px;
+}
+
+.elo-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+.elo-name {
+  text-align: center;
+  margin: 5px 0 2px;
+  font-size: 20px;
+  color: #222;
+}
+
+.elo-username {
+  text-align: center;
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 15px;
+}
+
+.elo-detail p {
+  font-size: 14px;
+  margin: 6px 0;
+  color: #444;
+}
+
+.elo-about h4 {
+  margin-top: 15px;
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: #222;
+}
+
+.elo-about p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.elo-guardian {
+  margin-top: 20px;
+}
+
+.elo-guardian h5 {
+  font-size: 15px;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.guardian-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.guardian-avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
 }
