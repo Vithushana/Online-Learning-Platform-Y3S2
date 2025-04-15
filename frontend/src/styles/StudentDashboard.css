@@ -58,6 +58,7 @@
   padding: 20px;
   gap: 20px;
   overflow-x: auto;
+  align-items: flex-start;
 }
 
 /* Middle content */
@@ -152,17 +153,19 @@
 
 /* Profile card (Right column) */
 .profile-section {
-  flex: 1;
+  flex: 0.7;
 }
 
 .elo-profile-card {
-  background: #333;
+  background: #49a46c; /*35354e */
   color: #fff;
   padding: 20px;
   border-radius: 20px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 20px rgba(165, 163, 80, 0.1);
   font-family: 'Segoe UI', sans-serif;
-  height: 820px;
+  height: 620px;
+  width: 55%;
+  margin-left: 160px;
 }
 
 .elo-avatar {

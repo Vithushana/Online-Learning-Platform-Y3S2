@@ -35,6 +35,7 @@ function StudentDashboard() {
         <h2 className="logo">SkillHive</h2>
         <nav>
           <Link to="#">Dashboard</Link>
+          <Link to="#">Profile</Link>
           <Link to="#">Courses</Link>
           <Link to="#">Materials</Link>
           <Link to="#">Transactions</Link>
