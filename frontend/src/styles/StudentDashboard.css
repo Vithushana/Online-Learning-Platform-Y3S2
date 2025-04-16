@@ -179,7 +179,7 @@
 
 .elo-name {
   text-align: center;
-  margin: 5px 0 2px;
+  margin: 75px 0 2px;
   font-size: 20px;
   color: #222;
 }
@@ -187,14 +187,14 @@
 .elo-username {
   text-align: center;
   font-size: 14px;
-  color: #888;
-  margin-bottom: 15px;
+  color: #e9e5e5;
+  margin-bottom: 55px;
 }
 
 .elo-detail p {
   font-size: 14px;
-  margin: 6px 0;
-  color: #444;
+  margin: 20px 0;
+  color: #ebe7e7;
 }
 
 .elo-about h4 {
@@ -206,7 +206,7 @@
 
 .elo-about p {
   font-size: 14px;
-  color: #555;
+  color: #e7e5e5;
   line-height: 1.5;
 }
 

@@ -129,17 +129,6 @@ function StudentDashboard() {
                   "No bio available. Add some info about yourself to let others know who you are!"}
               </p>
             </div>
-
-            <div className="elo-guardian">
-              <h5>Guardian</h5>
-              <div className="guardian-box">
-                <img src="/guardian-avatar.png" alt="Guardian" className="guardian-avatar" />
-                <div>
-                  <strong>Ny. Adriana Ramha</strong>
-                  <p>@rahmaadr</p>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
       </div>
