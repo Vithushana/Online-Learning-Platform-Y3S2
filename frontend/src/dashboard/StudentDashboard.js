@@ -9,15 +9,20 @@ function StudentDashboard() {
   const [user, setUser] = useState({});
 
   useEffect(() => {
+    // Fetch courses
     fetch("http://localhost:8080/api/courses")
       .then((res) => res.json())
       .then((data) => setCourses(data))
       .catch((err) => console.error("Error fetching courses:", err));
 
-    fetch("http://localhost:8080/api/user/profile")
-      .then((res) => res.json())
-      .then((data) => setUser(data))
-      .catch((err) => console.error("Error fetching user:", err));
+    // Fetch current logged-in user by ID from localStorage
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    if (storedUser && storedUser.id) {
+      fetch(`http://localhost:8080/api/auth/users/${storedUser.id}`)
+        .then((res) => res.json())
+        .then((data) => setUser(data))
+        .catch((err) => console.error("Error fetching user:", err));
+    }
   }, []);
 
   const handleCourseClick = (id) => {
@@ -35,7 +40,7 @@ function StudentDashboard() {
         <h2 className="logo">SkillHive</h2>
         <nav>
           <Link to="#">Dashboard</Link>
-          <Link to="#">Profile</Link>
+          <Link to="/profile/settings">Profile</Link>
           <Link to="#">Courses</Link>
           <Link to="#">Materials</Link>
           <Link to="#">Transactions</Link>
@@ -56,7 +61,7 @@ function StudentDashboard() {
         {/* Middle: Courses + Posts */}
         <main className="dashboard-content">
           <header className="dashboard-header">
-            <h1>Welcome, {user.fullName || "Student"} 👋</h1>
+            <h1>Welcome, {user?.name || "Student"} 👋</h1>
             <p>Explore your courses and learning materials</p>
           </header>
 
@@ -104,29 +109,29 @@ function StudentDashboard() {
         <section className="profile-section">
           <div className="elo-profile-card">
             <img
-              src={user.profileImage || "/default-avatar.png"}
+              src={user?.profileImage || "/default-avatar.png"}
               alt="User Avatar"
               className="elo-avatar"
             />
-            <h3 className="elo-name">{user.fullName || "Iqbaal Ramadhan"}</h3>
-            <p className="elo-username">@{user.username || "iqbaale"}</p>
+            <h3 className="elo-name">{user?.name || "Student Name"}</h3>
+            <p className="elo-username">@{user?.username || "username"}</p>
 
             <div className="elo-detail">
-              <p>🎂 {user.dob || "28 Desember 2004"}</p>
-              <p>🏫 {user.school || "Sekolah Pelita Harapan"}</p>
-              <p>📍 {user.address || "Jl. Lavender III, Klp. Dua, Tangerang"}</p>
+              <p>🎂 {user?.dob || "Date of birth not set"}</p>
+              <p>🏫 {user?.school || "School not set"}</p>
+              <p>📍 {user?.address || "Address not set"}</p>
             </div>
 
             <div className="elo-about">
-              <h4>Tentang Saya</h4>
+              <h4>About Me</h4>
               <p>
-                {user.bio ||
-                  "Saya sangat menyukai dunia desain dan photography. Selain itu saya juga menyukai musik, beberapa alat musik yang dapat saya mainkan yaitu gitar akustik, bass, dan keyboard."}
+                {user?.bio ||
+                  "No bio available. Add some info about yourself to let others know who you are!"}
               </p>
             </div>
 
             <div className="elo-guardian">
-              <h5>Wali Murid</h5>
+              <h5>Guardian</h5>
               <div className="guardian-box">
                 <img src="/guardian-avatar.png" alt="Guardian" className="guardian-avatar" />
                 <div>

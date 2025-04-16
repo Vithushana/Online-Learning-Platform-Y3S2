@@ -1,0 +1,99 @@
+.profile-settings-container {
+  padding: 30px;
+  background-color: #1f1f2e;
+  color: #8F87F1;
+  min-height: 90vh;
+  width: 97%;
+}
+
+.profile-settings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-settings-header h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.back-btn {
+  background-color: #444;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-right: 40px;
+}
+
+.back-btn:hover {
+  background-color: #666;
+}
+
+.profile-form {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.image-section {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-section img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  object-fit: cover;
+  border: 3px solid #8F87F1;
+}
+
+.fields {
+  flex: 2;
+  min-width: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-right: 50px;
+}
+
+.fields input,
+.fields textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  background-color: #2b2b3d;
+  color: white;
+  resize: none;
+}
+
+.fields input::placeholder,
+.fields textarea::placeholder {
+  color: #aaa;
+}
+
+.save-btn {
+  background-color: #8F87F1;
+  color: #1f1f2e;
+  border: none;
+  padding: 12px;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.save-btn:hover {
+  background-color: #6459e3;
+}

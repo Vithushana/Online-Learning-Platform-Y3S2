@@ -13,8 +13,12 @@ public class User {
     private String name;
     private String email;
     private String password;
-    private String role; 
+    private String role;
     private Date udate;
+    private String address;
+    private Date dob;
+    private String bio;
+    private String school;
 
     public User() {}
 
@@ -24,51 +28,83 @@ public class User {
         this.role = role;
     }
 
-    public String getId(){
+    public String getId() {
         return id;
     }
 
-    public void setId(String id){
+    public void setId(String id) {
         this.id = id;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String getEmail(){
+    public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email){
+    public void setEmail(String email) {
         this.email = email;
     }
 
-    public String getPassword(){
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password){
+    public void setPassword(String password) {
         this.password = password;
     }
 
-    public String getRole(){
+    public String getRole() {
         return role;
     }
 
-    public void setRole(String role){
+    public void setRole(String role) {
         this.role = role;
     }
 
-    public Date getUdate(){
+    public Date getUdate() {
         return udate;
     }
 
-    public void setUdate(Date udate){
-        this.udate=udate;
+    public void setUdate(Date udate) {
+        this.udate = udate;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Date getDob() {
+        return dob;
+    }
+
+    public void setDob(Date dob) {
+        this.dob = dob;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public String getSchool() {
+        return school;
+    }
+
+    public void setSchool(String school) {
+        this.school = school;
     }
 }

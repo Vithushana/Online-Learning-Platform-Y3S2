@@ -11,6 +11,7 @@ import ManageCategories from "./dashboard/ManageCategories";
 import ManageCourses from "./dashboard/ManageCourses";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
+import ProfileSettings from "./dashboard/ProfileSettings";
 
 function ProtectedRoute({ children, allowedRoles }) {
   const role = localStorage.getItem("userRole");
@@ -40,7 +41,8 @@ function AppRoutes() {
     "/admin/dashboard",
     "/admin/users",
     "/admin/categories",
-    "/admin/courses"
+    "/admin/courses",
+    "/profile/settings"
   ];
   const showNavbar = !hideNavbar.includes(location.pathname);
 
@@ -79,6 +81,11 @@ function AppRoutes() {
           <ProtectedRoute allowedRoles={["admin"]}>
             <ManageCourses />
           </ProtectedRoute>
+        } />
+        <Route path="/profile/settings" element={
+          <ProtectedRoute allowedRoles={["student"]}>
+            <ProfileSettings />
+          </ProtectedRoute>  
         } />
       </Routes>
     </>
