@@ -12,6 +12,10 @@ import ManageCourses from "./dashboard/ManageCourses";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import ProfileSettings from "./dashboard/ProfileSettings";
+import MentorPage from "./dashboard/MentorPage";
+import UploadVideo from "./dashboard/UploadVideo"
+import CreatePost from "./dashboard/CreatePost";
+import SelfDetails from "./dashboard/SelfDetails";
 
 function ProtectedRoute({ children, allowedRoles }) {
   const role = localStorage.getItem("userRole");
@@ -42,7 +46,11 @@ function AppRoutes() {
     "/admin/users",
     "/admin/categories",
     "/admin/courses",
-    "/profile/settings"
+    "/profile/settings",
+    "/mentor/dashboard",
+    "/mentor/video",
+    "/mentor/post",
+    "/mentor/self"
   ];
   const showNavbar = !hideNavbar.includes(location.pathname);
 
@@ -87,6 +95,10 @@ function AppRoutes() {
             <ProfileSettings />
           </ProtectedRoute>  
         } />
+        <Route path="/mentor/dashboard" element={<MentorPage />} />
+        <Route path="/mentor/self" element={<SelfDetails />} />
+        <Route path="/mentor/post" element={<CreatePost />} />
+        <Route path="/mentor/video" element={<UploadVideo />} />
       </Routes>
     </>
   );
