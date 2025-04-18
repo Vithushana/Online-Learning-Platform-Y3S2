@@ -16,6 +16,7 @@ import MentorPage from "./dashboard/MentorPage";
 import UploadVideo from "./dashboard/UploadVideo"
 import CreatePost from "./dashboard/CreatePost";
 import SelfDetails from "./dashboard/SelfDetails";
+import CourseList from "./pages/CourseList";
 
 function ProtectedRoute({ children, allowedRoles }) {
   const role = localStorage.getItem("userRole");
@@ -99,6 +100,7 @@ function AppRoutes() {
         <Route path="/mentor/self" element={<SelfDetails />} />
         <Route path="/mentor/post" element={<CreatePost />} />
         <Route path="/mentor/video" element={<UploadVideo />} />
+        <Route path="/courses" element={<CourseList />} />
       </Routes>
     </>
   );
